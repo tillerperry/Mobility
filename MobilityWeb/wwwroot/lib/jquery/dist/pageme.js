@@ -16,10 +16,11 @@ $(document).ready(function() {
         //search event 
         $('#deletebutton').click(function() {
             // Get the value from the input field
-            const nameValue = $('#customerNameId').val();
-            alert("setDelete")
+            const nameIdValue = $('#customerNameId').val();
+           
             // Set the value to the asp-route-name attribute of the anchor tag
-            $('#searchLink').attr('asp-route-id',nameValue).attr('href','Customer/Delete?id='+nameValue)
+            $('#deletebutton').attr('asp-route-id',nameIdValue).attr('href','Customer/Delete?id='+nameIdValue)
+           
         });
 
          

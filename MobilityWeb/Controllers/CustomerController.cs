@@ -70,9 +70,9 @@ namespace MobilityWeb.Controllers
             {
                 _context.Add(baseEntity);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListView));
             }
-            return View(baseEntity);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Customer/Edit/5
@@ -131,14 +131,14 @@ namespace MobilityWeb.Controllers
         {
             if (id == null || _context.Customers == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(ListView));
             }
 
-            var baseEntity = await _context.Customers
-                .FirstOrDefaultAsync(m => m.FirstName == id || m.Surname == id);
+            var baseEntity = await _context.Customers.FirstOrDefaultAsync(
+                x=>x.Surname.Contains(id) ||x.FirstName.Contains(id) );
             if (baseEntity == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(ListView));
             }
 
             return View(baseEntity);
