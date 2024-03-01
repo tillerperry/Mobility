@@ -1,0 +1,62 @@
+
+@model MobilityWeb.Models.Customer
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<table id="showbuttons" class="table table-bordered table-responsive-md" style="display: none">
+
+    <thead>
+    <tr>
+        <th>
+            Actions
+        </th>
+        <th>
+            Search
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr>
+        <td>
+         <button ><a type ="button" class="btn btn-primary" asp-action="Create">Record Add</a></button>  
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button> <a asp-action="Delete" class="btn btn-danger" id="deletebutton"> Delete</a></button>
+        </td>
+
+        <td> 
+
+            <input type="search" class="form-control align-content-sm-around" id="customerNameId" placeholder="Enter name">
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+          
+              <button> <a type="button" asp-action="SearchView" class="btn btn-success" id="searchLink"> Record Search</a></button>
+        </td>
+        <td>
+            <input name="FirstName" type="search" class="form-control align-content-sm-around" id="searchInput" placeholder="Enter name">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button><a type="button"  class="btn btn-warning" asp-action="ListView">Record List</a></button>  
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
